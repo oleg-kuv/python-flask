@@ -1,3 +1,3 @@
 start:
 	export FLASK_APP=example
-	flask --app example run -p 8000
+	flask run -p 8000

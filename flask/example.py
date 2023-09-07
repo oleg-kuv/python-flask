@@ -1,5 +1,4 @@
-from flask import Flask,request,make_response
-
+from flask import Flask,request,make_response,render_template
 
 app = Flask(__name__)
 
@@ -7,6 +6,16 @@ app = Flask(__name__)
 def hello_world():
     print(request.headers)
     return 'Hello from Flask!'
+
+@app.route('/courses/')
+def courses_handler():
+    courses = ['course1', 'course2', 'course3']
+
+    return render_template(
+        'courses/show.html',
+        courses=courses
+    )
+
 
 @app.get('/users')
 def users_get():
